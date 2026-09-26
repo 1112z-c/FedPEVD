@@ -1,0 +1,21 @@
+{
+  "partition_seed": 42,
+  "training_seeds": [45, 51, 57],
+  "federated_rounds": 5,
+  "local_epochs": 10,
+  "batch_size": 2,
+  "gradient_accumulation_steps": 16,
+  "learning_rate": 0.0002,
+  "weight_decay": 0.01,
+  "max_grad_norm": 1.0,
+  "max_length": 512,
+  "stride": 384,
+  "max_windows": 64,
+  "window_microbatch": 8,
+  "token_pooling": "max_only",
+  "dropout": 0.2,
+  "lora": {"rank": 4, "alpha": 8, "last_n_layers": 2, "targets": ["query", "value"]},
+  "loss": {"classification": "class-weighted cross entropy", "triplet_lambda": 1.0, "triplet_margin": 1.0},
+  "aggregation": "equal-client FedAvg",
+  "selection": "validation-only unified global round and per-client validation threshold"
+}
